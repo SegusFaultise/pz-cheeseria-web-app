@@ -1,5 +1,5 @@
 <template>
-  <div class="cheese_product_selection_page">
+  <div class="contact_page">
     <h1>This is an about page</h1>
   </div>
 </template>
