@@ -13,7 +13,8 @@
       <p class="about-us">
         At Pz Cheeseria, we’re dedicated to sharing our love for fine cheese. We’ve carefully sourced five premium cheeses, now available for purchase in-store. Discover our curated selection and experience the true taste of quality.
       </p>
-      <button class="cta-button">Select Now</button>
+
+      <RouterLink to="/cheese_selection_page" class="cta-button">Select Now</RouterLink>
     </div>
 
     <div class="hero-image-section">

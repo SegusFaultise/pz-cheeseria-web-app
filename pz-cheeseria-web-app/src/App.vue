@@ -42,6 +42,7 @@ body {
 
 /* Style the logo */
 .header .logo {
+  background-color: transparent;
   font-size: 2rem;
   font-weight: bold;
   color: #FAD45E; /* Dark purple */
@@ -52,6 +53,7 @@ body {
 /* Style the navigation links */
 .header-right a {
   color: #7D7D7D;
+  background-color: transparent;
   padding: 12px 20px;
   text-decoration: none;
   font-family: 'Pacifico';
@@ -61,16 +63,12 @@ body {
 
 /* Hover state for navigation links */
 .header-right a:hover {
-  background-color: #FFD700; /* Golden hover background */
-  color: #2F2352;
-  border-radius: 5px;
+  color: #FFD700; /* Golden hover background */
 }
 
 /* Active link styling */
 .header-right a.active {
-  background-color: #FFD700;
-  color: #2F2352;
-  border-radius: 5px;
+  color: #FFD700;
 }
 
 /* Responsive design */
