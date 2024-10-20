@@ -14,14 +14,22 @@ try {
   // Clean up previous deployment
   execSync('rm -rf .gh-pages');
 
-  // Clone the existing gh-pages branch using HTTPS instead of SSH
-  execSync('git clone --branch gh-pages https://github.com/SegusFaultise/pz-cheeseria-web-app.git .gh-pages || git init .gh-pages');
-
-  // Copy the built files to the gh-pages directory
-  execSync(`cp -r ${BUILD_DIR}/* .gh-pages/`);
-
-  // Change directory to the gh-pages folder
+  // Clone the repository and switch to gh-pages branch if it exists, otherwise create it
+  execSync('git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git .gh-pages');
   process.chdir('.gh-pages');
+  
+  try {
+    // Try checking out the gh-pages branch if it exists
+    execSync('git checkout gh-pages');
+  } catch (error) {
+    // Create the gh-pages branch if it doesn't exist
+    console.log('gh-pages branch does not exist. Creating a new one.', error);
+    execSync('git checkout --orphan gh-pages');
+  }
+
+  // Clear old files and copy the new build
+  execSync('rm -rf *');
+  execSync(`cp -r ../${BUILD_DIR}/* .`);
 
   // Set Git config for this repository (required by the runner)
   execSync('git config user.email "github-actions[bot]@users.noreply.github.com"');
