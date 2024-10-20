@@ -12,7 +12,6 @@
     "type-check": "vue-tsc --build --force",
     "lint": "eslint . --fix",
     "format": "prettier --write src/",
-    "deploy": "node scripts/gh-pages-deploy.js"
   },
   "dependencies": {
     "vue": "^3.5.12",
