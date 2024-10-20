@@ -8,7 +8,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -17,31 +16,48 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Change dir to pz-cheeseria-web-app
-      run: cd pz-cheeseria-web-app/
 
-      # Print the current working directory for debugging
+    # Print the root working directory for debugging
     - name: Print working directory
       run: pwd
 
     # List all files in the root directory for debugging
     - name: List root directory contents
-      run: cd pz-cheeseria-web-app/ && ls -la
-    
-    # Install Node.js with caching
+      run: ls -la
+
+    # Print the working directory inside the project directory
+    - name: Print project directory
+      run: pwd
+      working-directory: ./pz-cheeseria-web-app
+
+    # List the files in the project directory (where package.json should be)
+    - name: List project directory contents
+      run: ls -la
+      working-directory: ./pz-cheeseria-web-app
+
+    # Setup Node.js and cache dependencies
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
 
-    # Install dependencies and build
-    #- run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+    # Install dependencies (with correct working directory)
+    - name: Install dependencies
+      run: npm ci
+      working-directory: ./pz-cheeseria-web-app
+
+    # Build the project
+    - name: Build the project
+      run: npm run build --if-present
+      working-directory: ./pz-cheeseria-web-app
+
+    # Run tests
+    - name: Run tests
+      run: npm test
+      working-directory: ./pz-cheeseria-web-app
 
   deploy:
-
     needs: build
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
@@ -49,19 +65,25 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    # Set up Node.js to build the app for deployment
+    # Setup Node.js for deployment
     - name: Use Node.js 18.x
       uses: actions/setup-node@v4
       with:
         node-version: 18.x
 
-    # Install dependencies and build the project
-    - run: npm ci
-    - run: npm run build
+    # Install dependencies for deployment
+    - name: Install dependencies
+      run: npm ci
+      working-directory: ./pz-cheeseria-web-app
+
+    # Build the project for deployment
+    - name: Build for deployment
+      run: npm run build
+      working-directory: ./pz-cheeseria-web-app
 
     # Deploy to GitHub Pages
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist
+        publish_dir: ./pz-cheeseria-web-app/dist
