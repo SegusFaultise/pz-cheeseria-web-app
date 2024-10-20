@@ -10,19 +10,22 @@ if (!fs.existsSync(BUILD_DIR)) {
   process.exit(1);
 }
 
-// Deploy to the gh-pages branch
 try {
   // Clean up previous deployment
   execSync('rm -rf .gh-pages');
-  
-  // Clone the existing gh-pages branch or create a new one
-  execSync('git clone --branch gh-pages git@github.com:YOUR_USERNAME/YOUR_REPOSITORY.git .gh-pages || git init .gh-pages');
-  
+
+  // Clone the existing gh-pages branch using HTTPS instead of SSH
+  execSync('git clone --branch gh-pages https://github.com/SegusFaultise/pz-cheeseria-web-app.git .gh-pages || git init .gh-pages');
+
   // Copy the built files to the gh-pages directory
   execSync(`cp -r ${BUILD_DIR}/* .gh-pages/`);
 
   // Change directory to the gh-pages folder
   process.chdir('.gh-pages');
+
+  // Set Git config for this repository (required by the runner)
+  execSync('git config user.email "github-actions[bot]@users.noreply.github.com"');
+  execSync('git config user.name "GitHub Actions Bot"');
 
   // Commit and push changes
   execSync('git add .');
