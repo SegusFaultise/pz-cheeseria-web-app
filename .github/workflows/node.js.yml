@@ -17,6 +17,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: Change dir to pz-cheeseria-web-app
+      run: cd pz-cheeseria-web-app
     
     # Install Node.js with caching
     - name: Use Node.js ${{ matrix.node-version }}
@@ -26,7 +28,6 @@ jobs:
         cache: 'npm'
 
     # Install dependencies and build
-    - run: cd pz-cheeseria-web-app/
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
