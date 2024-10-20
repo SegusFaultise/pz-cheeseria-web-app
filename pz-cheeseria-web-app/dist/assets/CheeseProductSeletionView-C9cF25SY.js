@@ -1,1 +1,0 @@
-import{_ as s,c as o,a as t,o as c}from"./index-D830TROM.js";const a={},n={class:"cheese_product_selection_page"};function r(_,e){return c(),o("div",n,e[0]||(e[0]=[t("h1",null,"This is an about page",-1)]))}const l=s(a,[["render",r]]);export{l as default};
