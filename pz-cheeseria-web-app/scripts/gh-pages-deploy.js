@@ -15,7 +15,7 @@ try {
   execSync('rm -rf .gh-pages');
 
   // Clone the repository and switch to gh-pages branch if it exists, otherwise create it
-  execSync('git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git .gh-pages');
+  execSync('git clone https://github.com/SegusFaultise/pz-cheeseria-web-app.git .gh-pages');
   process.chdir('.gh-pages');
   
   try {
