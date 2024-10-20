@@ -32,7 +32,7 @@ try {
   execSync(`cp -r ../${BUILD_DIR}/* .`);
 
   // Set Git config for this repository (required by the runner)
-  execSync('git config user.email "wilsonzakk8@gmail.com');
+  execSync('git config user.email "wilsonzakk8@gmail.com"');
   execSync('git config user.name "SegusFaultise"');
 
   // Commit and push changes
