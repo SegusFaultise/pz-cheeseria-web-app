@@ -17,8 +17,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Change to client directory
-      run: ./pz-cheeseria-web-app
+    
     
     # Install Node.js with caching
     - name: Use Node.js ${{ matrix.node-version }}
