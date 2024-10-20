@@ -18,10 +18,10 @@
               npm i
           - name: Set Creds
             run: |
-              pz-cheeseria-web-app
+              cd pz-cheeseria-web-app
               git config user.name "<username>" && git config user.email "<email>"
           - name: Deploy
             run: |
-              pz-cheeseria-web-app
+              cd pz-cheeseria-web-app
               npm run deploy
 
