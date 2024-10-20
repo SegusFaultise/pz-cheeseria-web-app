@@ -14,23 +14,6 @@ import LandingPageMessage from './components/LandingPageMessage.vue'
     </div>
   </div>
 
-  <div class="main-content">
-    <div class="slogan-section">
-      <h1 class="slogan">
-        Crafted with Passion, Curated with Care – <br />
-        Discover the Finest Cheeses at Our Cheeseria.
-      </h1>
-      <p class="about-us">
-        At Pz Cheeseria, we’re dedicated to sharing our love for fine cheese. We’ve carefully sourced five premium cheeses, now available for purchase in-store. Discover our curated selection and experience the true taste of quality.
-      </p>
-      <button class="cta-button">Select Now</button>
-    </div>
-
-    <div class="hero-image-section">
-      <img class="hero-image" src="./assets/cheese-icon.png" alt="Cheese Icon">
-    </div>
-  </div>
-
   <RouterView />
 
   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
@@ -90,90 +73,14 @@ body {
   border-radius: 5px;
 }
 
-.main-content {
-  display: flex; /* Flex container for slogan and hero image */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  height: calc(100vh - 100px); /* Full height minus header height */
-}
-
-.slogan-section {
-  margin-right: 40px; /* Space between slogan and image */
-  max-width: 70vh; /* Adjust as needed */
-}
-
-.hero-image-section {
-  display: flex;
-  align-items: center;
-}
-
-.hero-image-section .hero-image {
-  max-width: 1000px; /* Set a maximum width for the image */
-  max-height: 1000px; /* Set a maximum height for the image */
-}
-
-/* Slogan styles */
-.slogan {
-  font-family: 'Georgia', serif;
-  font-size: 3rem;
-  font-weight: 500;
-  width: 75vh;
-  color: #2F2352;
-  margin-bottom: 1rem;
-}
-
-.about-us {
-  font-family: 'Arial', sans-serif;
-  font-size: 1.2rem;
-  color: #7D7D7D;
-  margin-bottom: 2rem;
-}
-
-.cta-button {
-  background-color: #FFD700;
-  color: #2F2352;
-  border: none;
-  padding: 1rem 2rem;
-  font-size: 1.3rem;
-  font-weight: bold;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.cta-button:hover {
-  background-color: #e6be00;
-}
-
 /* Responsive design */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .header-right {
-    margin-top: 10px;
+    padding: 15px; /* Adjust header padding */
   }
 
   .header-right a {
-    display: block;
-    padding: 10px 0;
-  }
-
-  .main-content {
-    flex-direction: column; /* Stack the sections vertically */
-    align-items: center; /* Center items */
-  }
-
-  .slogan-section {
-    margin-right: 0; /* Remove right margin for mobile */
-    max-width: 90%; /* Adjust for smaller screens */
-    text-align: center; /* Center text on mobile */
-  }
-
-  .hero-image-section {
-    margin-top: 20px; /* Add space above the hero image */
+    font-size: 1rem; /* Adjust font size for smaller screens */
   }
 }
 </style>
