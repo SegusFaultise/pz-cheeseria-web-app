@@ -23,6 +23,7 @@ import LandingPageMessage from './components/LandingPageMessage.vue'
 <style scoped>
 /* Style the header with your design */
 .header {
+  background-color: rgba(255, 255, 255, 0.822);
   position: fixed; /* Fix the header at the top */
   top: 0;
   left: 0;
@@ -30,7 +31,7 @@ import LandingPageMessage from './components/LandingPageMessage.vue'
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
+  padding: 10px 40px;
   font-family: 'Arial', sans-serif;
   z-index: 1000; /* Ensure it's above other elements */
 }

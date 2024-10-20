@@ -5,7 +5,7 @@
     <div class="row">
       <div
         v-if="cheeseProducts.length > 0"
-        class="col-lg-3 col-md-6 col-sm-12 mb-4"  
+        class="col-lg-0 col-md-6 col-sm-12 mb-5"  
         v-for="cheese in cheeseProducts"
         :key="cheese._id"
       >
@@ -21,8 +21,22 @@
             <p class="card-text"><strong>Origin:</strong> {{ cheese.cheese_product_origin }}</p>
             <p class="card-text"><strong>Price per Kilo:</strong> ${{ cheese.cheese_product_price_per_kilo }}</p>
             <p class="card-text"><strong>Stock:</strong> {{ cheese.cheese_product_stock }}</p>
+
             <div class="mt-auto">
-              <button class="btn btn-primary">Add to Cart</button>
+            <p class="total-price">
+              <strong>Total Price: $</strong>
+              <span>{{ totalPrices[cheese._id] !== undefined ? totalPrices[cheese._id].toFixed(2) : '0.00' }}</span>
+            </p>
+            <label for="weightInput">Weight (kg):</label>
+            <input
+              type="number"
+              class="form-control mb-2"
+              id="weightInput"
+              v-model.number="weights[cheese._id]"
+              @input="calculateTotalPrice(cheese)"
+              min="0"
+              step="0.1"
+            />
             </div>
           </div>
         </div>
@@ -32,15 +46,14 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </template>
 
-
-
-
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 
 const cheeseProducts = ref([]);
 const loading = ref(true);
 const error = ref(null);
+const weights = ref({});
+const totalPrices = ref({});
 
 onMounted(async () => {
   try {
@@ -57,18 +70,18 @@ onMounted(async () => {
   }
 });
 
-// Function to dynamically resolve the image URL from the assets folder
 const getImageUrl = (imageFileName: string) => {
   return new URL(`../assets/${imageFileName}`, import.meta.url).href;
+};
+
+const calculateTotalPrice = (cheese) => {
+  const weight = weights.value[cheese._id] || 0;
+  const pricePerKilo = cheese.cheese_product_price_per_kilo;
+  totalPrices.value[cheese._id] = weight * pricePerKilo;
 };
 </script>
 
 <style scoped>
-
-h1 {
-
-}
-
 .btn-primary {
   color: white;
   font-weight: 600;
@@ -82,16 +95,17 @@ h1 {
 
 .container {
   width: 100vh;
-  margin-top: 150px;
+  margin-top: 80px;
 }
 
 .card {
-  border: none; /* Remove border for a cleaner look */
-  border-radius: 0.5rem; /* Rounded corners for modern look */
-  overflow: hidden; /* Hide overflow for rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
-  display: flex; /* Make card a flex container */
-  flex-direction: column; /* Stack children vertically */
+  width: 50vh;
+  border: none; 
+  border-radius: 0.5rem; 
+  overflow: hidden; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  display: flex; 
+  flex-direction: column; 
 }
 
 .card-img-top {
@@ -104,10 +118,6 @@ h1 {
   flex-direction: column; 
   justify-content: space-between; /* Ensures space between elements */
   flex-grow: 1; /* Allow body to take up remaining space */
-}
-
-.btn-primary {
-  width: 100%; /* Make button full width */
 }
 
 @media (max-width: 768px) {
