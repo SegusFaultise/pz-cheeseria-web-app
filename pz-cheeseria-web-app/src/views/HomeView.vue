@@ -27,36 +27,36 @@
 
 <style scoped>
 .main-content {
-  display: flex; /* Flex container for slogan and hero image */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  height: calc(100vh - 100px); /* Full height minus header height */
-  padding: 20px; /* Add padding for smaller devices */
-  flex-wrap: wrap; /* Allow wrapping of flex items */
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  height: calc(100vh - 100px); 
+  padding: 20px; 
+  flex-wrap: wrap; 
   width: 100vh;
 }
 
 .slogan-section {
-  margin-right: 20px; /* Space between slogan and image */
-  max-width: 500px; /* Adjust as needed */
-  flex: 1; /* Allow flex growth */
+  margin-right: 20px; 
+  max-width: 500px; 
+  flex: 1; 
 }
 
 .hero-image-section {
   display: flex;
   align-items: center;
-  flex: 1; /* Allow flex growth */
+  flex: 1; 
 }
 
 .hero-image-section .hero-image {
-  max-width: 100%; /* Set to 100% for responsiveness */
-  height: auto; /* Maintain aspect ratio */
+  max-width: 100%; 
+  height: auto; 
 }
 
 /* Slogan styles */
 .slogan {
   font-family: 'Georgia', serif;
-  font-size: 2.5rem; /* Adjusted for better scaling */
+  font-size: 2.5rem; 
   font-weight: 500;
   color: #2F2352;
   margin-bottom: 1rem;
@@ -64,17 +64,17 @@
 
 .about-us {
   font-family: 'Arial', sans-serif;
-  font-size: 1rem; /* Adjusted for better scaling */
+  font-size: 1rem; 
   color: #7D7D7D;
   margin-bottom: 2rem;
 }
 
 .cta-button {
-  background-color: #FFD700;
-  color: #2F2352;
+  background-color: #ecc800;
+  color: #ffffff;
   border: none;
   padding: 1rem 2rem;
-  font-size: 1rem; /* Adjusted for better scaling */
+  font-size: 1rem; 
   font-weight: bold;
   border-radius: 50px;
   cursor: pointer;
@@ -82,47 +82,45 @@
 }
 
 .cta-button:hover {
-  background-color: #e6be00;
+  background-color: #ffdd30;
 }
 
-/* Responsive design */
 @media screen and (max-width: 1024px) {
   .main-content {
-    flex-direction: column; /* Stack sections vertically */
-    align-items: center; /* Center items */
-    height: auto; /* Remove fixed height */
+    flex-direction: column; 
+    align-items: center; 
+    height: auto; 
   }
 
   .slogan-section {
-    margin-right: 0; /* Remove right margin */
-    max-width: 90%; /* Adjust for smaller screens */
-    text-align: center; /* Center text */
+    margin-right: 0; 
+    max-width: 90%; 
+    text-align: center; 
   }
 
   .hero-image-section {
-    margin-top: 20px; /* Add space above the hero image */
-    max-width: 90%; /* Limit width for mobile */
+    margin-top: 20px; 
+    max-width: 90%; 
   }
 }
 
 @media screen and (max-width: 768px) {
   .slogan {
-    font-size: 2rem; /* Adjust slogan font size */
+    font-size: 2rem; 
   }
 
   .about-us {
-    font-size: 0.9rem; /* Adjust about text font size */
+    font-size: 0.9rem; 
   }
 
   .cta-button {
-    font-size: 0.9rem; /* Adjust button font size */
-    padding: 0.8rem 1.5rem; /* Adjust padding */
+    font-size: 0.9rem; 
+    padding: 0.8rem 1.5rem; 
   }
 
-  /* Further adjustments for mobile */
   .hero-image-section .hero-image {
-    max-width: 100%; /* Ensure full width on mobile */
-    height: auto; /* Maintain aspect ratio */
+    max-width: 100%; 
+    height: auto; 
   }
 }
 </style>

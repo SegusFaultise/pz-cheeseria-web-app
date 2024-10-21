@@ -26,7 +26,7 @@ const router = createRouter({
       path: '/contact_page',
       name: 'contact_page',
 
-      component: CheeseSelectionPage,
+      component: () => import('../views/ContactView.vue'),
     },
   ],
 })

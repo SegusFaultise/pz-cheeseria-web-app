@@ -109,20 +109,20 @@ const calculateTotalPrice = (cheese) => {
 }
 
 .card-img-top {
-  height: 200px; /* Fixed height for uniformity */
-  object-fit: cover; /* Ensure images cover the space without distortion */
+  height: 200px; 
+  object-fit: cover; 
 }
 
 .card-body {
   display: flex; 
   flex-direction: column; 
-  justify-content: space-between; /* Ensures space between elements */
-  flex-grow: 1; /* Allow body to take up remaining space */
+  justify-content: space-between; 
+  flex-grow: 1; 
 }
 
 @media (max-width: 768px) {
   .card {
-    width: 100%; /* Make cards full width on smaller screens */
+    width: 100%; 
   }
 }
 </style>

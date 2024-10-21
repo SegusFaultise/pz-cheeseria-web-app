@@ -21,10 +21,9 @@ import LandingPageMessage from './components/LandingPageMessage.vue'
 </template>
 
 <style scoped>
-/* Style the header with your design */
 .header {
   background-color: rgba(255, 255, 255, 0.822);
-  position: fixed; /* Fix the header at the top */
+  position: fixed; 
   top: 0;
   left: 0;
   right: 0;
@@ -33,25 +32,22 @@ import LandingPageMessage from './components/LandingPageMessage.vue'
   align-items: center;
   padding: 10px 40px;
   font-family: 'Arial', sans-serif;
-  z-index: 1000; /* Ensure it's above other elements */
+  z-index: 1000; 
 }
 
-/* Add padding to the top of the body so content is not hidden behind the header */
 body {
-  padding-top: 100px; /* Adjust this to the height of the header */
+  padding-top: 100px; 
 }
 
-/* Style the logo */
 .header .logo {
   background-color: transparent;
   font-size: 2rem;
   font-weight: bold;
-  color: #FAD45E; /* Dark purple */
+  color: #FAD45E; 
   font-family: 'Playfair Display';
   text-decoration: none;
 }
 
-/* Style the navigation links */
 .header-right a {
   color: #7D7D7D;
   background-color: transparent;
@@ -62,24 +58,21 @@ body {
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-/* Hover state for navigation links */
 .header-right a:hover {
-  color: #FFD700; /* Golden hover background */
+  color: #FFD700; 
 }
 
-/* Active link styling */
 .header-right a.active {
   color: #FFD700;
 }
 
-/* Responsive design */
 @media screen and (max-width: 1024px) {
   .header {
-    padding: 15px; /* Adjust header padding */
+    padding: 15px; 
   }
 
   .header-right a {
-    font-size: 1rem; /* Adjust font size for smaller screens */
+    font-size: 1rem; 
   }
 }
 </style>
